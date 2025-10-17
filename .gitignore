@@ -1,0 +1,59 @@
+# Build results
+bin/
+obj/
+out/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+
+# Logs
+*.log
+
+# User-specific files
+*.userprefs
+*.user
+*.swp
+*.dbmdl
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.cache
+*.pdb
+
+# Maui specific
+Platforms/Android/bin/
+Platforms/Android/obj/
+Platforms/iOS/bin/
+Platforms/iOS/obj/
+Platforms/MacCatalyst/bin/
+Platforms/MacCatalyst/obj/
+Platforms/Tizen/bin/
+Platforms/Tizen/obj/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Publish outputs
+publish/
+AppPackages/
+BundleArtifacts/
