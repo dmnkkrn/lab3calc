@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using labcalcgit.ViewModels;
+using labcalcgit.Views;
+using Microsoft.Extensions.Logging;
 
 namespace labcalcgit
 {
@@ -9,6 +12,7 @@ namespace labcalcgit
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -18,6 +22,11 @@ namespace labcalcgit
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            
+            builder.Services.AddTransient<AppShell>();
+            
+            builder.Services.AddTransient<HomeViewModel>();
+            builder.Services.AddTransient<HomePage>();
 
             return builder.Build();
         }
