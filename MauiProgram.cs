@@ -3,6 +3,7 @@ using labcalcgit.ViewModels;
 using labcalcgit.Views;
 using Microsoft.Extensions.Logging;
 
+
 namespace labcalcgit
 {
     public static class MauiProgram
@@ -24,9 +25,8 @@ namespace labcalcgit
 #endif
             
             builder.Services.AddTransient<AppShell>();
-            
-            builder.Services.AddTransient<HomeViewModel>();
             builder.Services.AddTransient<HomePage>();
+            builder.Services.AddTransient<CalculatorViewModel>();
 
             return builder.Build();
         }
