@@ -4,9 +4,9 @@ namespace labcalcgit.Views;
 
 public partial class HomePage : ContentPage
 {
-    public HomePage(HomeViewModel vm)
+    public HomePage(CalculatorViewModel vm)
     {
         InitializeComponent();
-        BindingContext = vm;
+        BindingContext = vm; 
     }
 }

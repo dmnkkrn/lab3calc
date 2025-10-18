@@ -19,12 +19,12 @@ namespace labcalcgit
             }
             return (Solute / Solution) * 100;
         }
-        public double CalculateSum(double Solution, int Units)
+        public double CalculateSum(double Solution, double Units)
         {
                         return Solution * Units;
         }
 
-        public double CalculatePercentageWithSum(double Solute, double Solution, int Units)
+        public double CalculatePercentageWithSum(double Solute, double Solution, double Units)
         {
             double totalSolution = CalculateSum(Solution, Units);
             return CalculatePercentage(Solute, totalSolution);

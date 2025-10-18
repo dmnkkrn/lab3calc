@@ -3,6 +3,9 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using labcalcgit.Models;
+using CommunityToolkit.Mvvm.Input;
+
 
 namespace labcalcgit.ViewModels
 {
@@ -61,3 +64,4 @@ namespace labcalcgit.ViewModels
         [RelayCommand]
         void CalculateConcentrationWithVolume() => Result = _calculator.CalculatePercentageWithSum(Solute, Solution, Units);
     }
+}
