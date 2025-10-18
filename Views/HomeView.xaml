@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="labcalcgit.Views.HomePage"
+             Title="{Binding Title}">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <!-- INPUTS -->
+            <Label Text="Dane wejściowe" FontSize="18" />
+
+            <Grid ColumnDefinitions="*,auto" RowDefinitions="auto,auto,auto" ColumnSpacing="12" RowSpacing="12">
+
+                <!-- Pojemność naczynia -->
+                <Label Grid.Row="0" Grid.Column="0" Text="Pojemność naczynia [ml]" VerticalTextAlignment="Center" />
+                <Entry Grid.Row="0" Grid.Column="1"
+                       Text="{Binding Capacity, Mode=TwoWay}"
+                       Placeholder="np. 250"
+                       Keyboard="Numeric"
+                       HorizontalTextAlignment="End"
+                       WidthRequest="140" />
+
+                <!-- Procentowa zawartość substancji -->
+                <Label Grid.Row="1" Grid.Column="0" Text="Zawartość [%]" VerticalTextAlignment="Center" />
+                <Entry Grid.Row="1" Grid.Column="1"
+                       Text="{Binding ConcentrationPercent, Mode=TwoWay}"
+                       Placeholder="np. 12.5"
+                       Keyboard="Numeric"
+                       HorizontalTextAlignment="End"
+                       WidthRequest="140" />
+
+                <!-- Liczba naczyń -->
+                <Label Grid.Row="2" Grid.Column="0" Text="Liczba sztuk" VerticalTextAlignment="Center" />
+                <HorizontalStackLayout Grid.Row="2" Grid.Column="1" Spacing="8">
+                    <Button Text="−" Command="{Binding DecrementCountCommand}" />
+                    <Entry Text="{Binding Count, Mode=TwoWay}"
+                           Keyboard="Numeric"
+                           HorizontalTextAlignment="Center"
+                           WidthRequest="80" />
+                    <Button Text="+" Command="{Binding IncrementCountCommand}" />
+                </HorizontalStackLayout>
+            </Grid>
+
+            <!-- Wersje bogatsze: typowe naczynia i roztwory -->
+            <Frame IsVisible="{Binding HasAdvancedOptions}" Padding="16">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Opcje zaawansowane" FontSize="16" />
+                    <Grid ColumnDefinitions="*,auto" RowDefinitions="auto,auto" ColumnSpacing="12" RowSpacing="12">
+
+                        <!-- Typowe naczynia -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="Typowe naczynie" VerticalTextAlignment="Center" />
+                        <Picker Grid.Row="0" Grid.Column="1"
+                                Title="Wybierz"
+                                ItemsSource="{Binding Vessels}"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedItem="{Binding SelectedVessel, Mode=TwoWay}"
+                                WidthRequest="180" />
+
+                        <!-- Typowe roztwory -->
+                        <Label Grid.Row="1" Grid.Column="0" Text="Typowy roztwór" VerticalTextAlignment="Center" />
+                        <Picker Grid.Row="1" Grid.Column="1"
+                                Title="Wybierz"
+                                ItemsSource="{Binding Solutions}"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedItem="{Binding SelectedSolution, Mode=TwoWay}"
+                                WidthRequest="180" />
+                    </Grid>
+                    <Label FontAttributes="Italic"
+                           FontSize="12"
+                           Text="Wybór z listy nadpisuje odpowiednio pola: pojemność lub procent." />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ACTIONS -->
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="Oblicz" Command="{Binding CalculateCommand}" />
+                <Button Text="Wyczyść" Command="{Binding ResetCommand}" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            </HorizontalStackLayout>
+
+            <!-- VALIDATION / INFO -->
+            <Label Text="{Binding ErrorMessage}" TextColor="Crimson" IsVisible="{Binding HasError}" />
+
+            <!-- RESULTS -->
+            <Label Text="Wyniki" FontSize="18" />
+            <Grid ColumnDefinitions="*,auto" RowDefinitions="auto,auto" ColumnSpacing="12" RowSpacing="8">
+                <Label Grid.Row="0" Grid.Column="0" Text="Łączna objętość [ml]" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding TotalVolume, StringFormat='{}{0:F2}'}"
+                       HorizontalTextAlignment="End" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Objętość czystej substancji [ml]" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding PureSubstanceVolume, StringFormat='{}{0:F2}'}"
+                       HorizontalTextAlignment="End" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
