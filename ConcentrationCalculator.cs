@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Solute is a thing being dissolved
+//Solution is the total volume of liquid
+
 namespace labcalcgit
 {
     internal class ConcentrationCalculator
@@ -16,14 +19,14 @@ namespace labcalcgit
             }
             return (Solute / Solution) * 100;
         }
-        public double CalculateSum(double Volume, int Units)
+        public double CalculateSum(double Solution, int Units)
         {
-                        return Volume * Units;
+                        return Solution * Units;
         }
 
-        public double CalculatePercentageWithSum(double Solute, double Volume, int Units)
+        public double CalculatePercentageWithSum(double Solute, double Solution, int Units)
         {
-            double totalSolution = CalculateSum(Volume, Units);
+            double totalSolution = CalculateSum(Solution, Units);
             return CalculatePercentage(Solute, totalSolution);
         }
 
