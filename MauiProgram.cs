@@ -26,7 +26,7 @@ namespace labcalcgit
             
             builder.Services.AddTransient<AppShell>();
             builder.Services.AddTransient<HomePage>();
-            builder.Services.AddTransient<CalculatorViewModel>();
+            builder.Services.AddTransient<HomeViewModel>();
 
             return builder.Build();
         }

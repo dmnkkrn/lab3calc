@@ -9,10 +9,10 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace labcalcgit.ViewModels
 {
-    public partial class CalculatorViewModel : ObservableObject
+    public partial class HomeViewModel : ObservableObject
     {
         private readonly ConcentrationCalculator _calculator;
-        public CalculatorViewModel()
+        public HomeViewModel()
         {
             _calculator = new ConcentrationCalculator();
 
