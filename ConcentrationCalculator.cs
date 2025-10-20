@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//Solute is a thing being dissolved
-//Solution is the total volume of liquid
+// Solute is a thing being dissolved
+// Solution is the total volume of liquid
 
 namespace labcalcgit
 {
@@ -17,11 +17,13 @@ namespace labcalcgit
             {
                 throw new ArgumentException("Solution cannot be zero.");
             }
+
             return (Solute / Solution) * 100;
         }
+
         public double CalculateSum(double Solution, double Units)
         {
-                        return Solution * Units;
+            return Solution * Units;
         }
 
         public double CalculatePercentageWithSum(double Solute, double Solution, double Units)
@@ -29,8 +31,5 @@ namespace labcalcgit
             double totalSolution = CalculateSum(Solution, Units);
             return CalculatePercentage(Solute, totalSolution);
         }
-
     }
-
-
 }

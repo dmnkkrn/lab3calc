@@ -6,5 +6,5 @@ public class VesselOption
     /// <summary>
     /// Vessel capacity in milliliters
     /// </summary>
-    public required double Capacity { get; set; }
+    public required int Capacity { get; set; }
 }
